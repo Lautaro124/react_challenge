@@ -1,7 +1,9 @@
+'use client'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Button from './components/buttons'
+import Button from './components/button'
+import { ReduxProvider } from '@/redux/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,8 +23,10 @@ export default function RootLayout({
         <header className="bg-[#32cd32] p-2 py-3 h-20">
           <h1>Logo</h1>
         </header>
-        {children}
-        <footer className='p-3 h-16 mt-2'>
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
+        <footer className='p-3 py-5 h-24 flex items-center border-t border-t-[#d4d9db]'>
           <Button>
             Salir
           </Button>

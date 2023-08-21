@@ -38,5 +38,29 @@
     "saldo": "2-5-0",
     "moneda": "$",
     "tipo_letras": "CA"
+  },
+  {
+    "e": "1",
+    "moneda": "$",
+    "n": "872378326709",
+    "saldo": "458",
+    "t": "01",
+    "tipo_letras": "CC"
+  },
+  {
+    "e": "1",
+    "moneda": "$",
+    "n": "872378327823",
+    "saldo": "250",
+    "t": "11",
+    "tipo_letras": "CA"
+  },
+  {
+    "e": "1",
+    "moneda": "u$s",
+    "n": "872378327823",
+    "saldo": "45",
+    "t": "12",
+    "tipo_letras": "CA"
   }
 ]

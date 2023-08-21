@@ -2,8 +2,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Button from './components/button'
 import { ReduxProvider } from '@/redux/provider'
+import Footer from './components/footer'
+import logo from '@/assets/logo.png'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,17 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-[#f0efef] ${inter.className} h-screen max-h-screen`}>
-        <header className="bg-[#32cd32] p-2 py-3 h-20">
-          <h1>Logo</h1>
+        <header className="bg-[#32cd32] p-2 py-3 h-20 flex items-center">
+          <Image src={logo} width={170} height={60} alt='Logo' />
         </header>
         <ReduxProvider>
           {children}
         </ReduxProvider>
-        <footer className='p-3 py-5 h-24 flex items-center border-t border-t-[#d4d9db]'>
-          <Button>
-            Salir
-          </Button>
-        </footer>
+        <Footer />
       </body>
     </html>
   )

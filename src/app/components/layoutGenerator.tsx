@@ -4,10 +4,10 @@ interface LayoutGeneratorProps {
 }
 const LayoutGenerator = ({ children, title }: LayoutGeneratorProps) => {
   return (
-    <main className="py-8 px-7 h-[71%]">
-      <section className="h-[10%] flex flex-col items-center justify-center">
-        <span>Consultar saldo</span>
-        <h1 className="font-bold text-2xl">{title}</h1>
+    <main className="py-8 px-7 h-[71%] w-screen">
+      <section className="h-[10%] flex flex-col items-center justify-center text-[rgb(0,48,80)]">
+        <span className="text-center text-lg">Consultar saldo</span>
+        <h1 className="font-bold text-3xl tracking-wider">{title}</h1>
       </section>
         {children}
     </main>

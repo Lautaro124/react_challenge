@@ -14,36 +14,33 @@ const AccountsSection = () => {
   const router = useRouter()
   const { currentPage, accounts } = useSelector((state: RootState) => state.acount)
 
+  // Realiza en llamado de la api y dispacha un evento para ingresar las cuentas
   const getData = async () => {
-    const accounts = await service()
-    dispatch(setAccounts(accounts.cuentas))
+    const serviceAccounts = await service()
+    dispatch(setAccounts(serviceAccounts.cuentas))
   }
-
+  // al inicial la pagina ejecuta la funcion getData y cada vez que se modifique el currentPage se va a ejecutar
   useEffect(() => {
     void getData()
-    console.log(accounts)
   }, [currentPage])
 
+  // Funcion para poder ir a los detalles y dispacha una accion que obtiene los datos de una cuenta
   const onClick = (account: Account) => {
     dispatch(selecOneDetail(account))
     router.push('/detail')
   }
 
-  const nextOptions = () => {
-    const nextPage = currentPage + 1
-    dispatch(changePage(nextPage))
-  }
-
-  const backOptions = () => {
-    const backPage = currentPage - 1
-    dispatch(changePage(backPage))
+  // Ejecuta un dispatch para cambiar el paginado
+  const handlePageChange = (direction: 'next' | 'back'): void => {
+    if (direction === 'next') dispatch(changePage(currentPage + 1))
+    if (direction === 'back') dispatch(changePage(currentPage - 1))
   }
 
   return (
     <section className="grid grid-cols-3 grid-rows-2 gap-4 h-[90%] py-12">
       {
         currentPage !== 0 && (
-          <Button onClick={backOptions}>
+          <Button onClick={() => { handlePageChange('back') }}>
             <div className="flex flex-col gap-1">
               <span>{'<<'} Opciones anteriores</span>
             </div>
@@ -62,7 +59,7 @@ const AccountsSection = () => {
       }
       {
         accounts.length >= 5 && (
-          <Button onClick={nextOptions}>
+          <Button onClick={() => { handlePageChange('next') }}>
             <div className="flex flex-col gap-1">
               <span>Mas opciones {'>>'}</span>
             </div>

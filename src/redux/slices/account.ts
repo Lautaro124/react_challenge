@@ -1,6 +1,6 @@
 import { type Account } from '@/interface/accounts'
 import { calculateItemsPerPage } from '@/utils/calculateItemsPerPage'
-import { getAccounts } from '@/utils/getAccounts'
+import { getFormattedAccounts } from '@/utils/getFormattedAccounts'
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 interface InitialState {
@@ -21,13 +21,13 @@ const initialState: InitialState = {
     moneda: ''
   }
 }
-
+// Se creo un slice para realizar acciones/cambios de estados en base a llamados
 const accountsSlices = createSlice({
   name: 'acount',
   initialState,
   reducers: {
     setAccounts(state, action: PayloadAction<Account[]>) {
-      const accounts = getAccounts(action.payload)
+      const accounts = getFormattedAccounts(action.payload)
       const itemsPerPage = calculateItemsPerPage(state.currentPage, accounts.length)
       const startIndex = state.currentPage * itemsPerPage
       const endIndex = startIndex + itemsPerPage

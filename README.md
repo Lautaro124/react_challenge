@@ -45,3 +45,4 @@ En caso de usar NPM usar
 ```
 npm run test
 ```
+En caso de querer salir del proceso solo con precionar la Q va a estar cancelando la ejecucion del mismo.

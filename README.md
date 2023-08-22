@@ -11,7 +11,6 @@ npm i
 
 Una vez instaladas las dependencias se tendra que correr los siguietes comandos para ejecutar buildear la apliacion como si fuera a produccion:
 
-Buildeo de la aplicacion
 ```
 yarn build
 ```
@@ -38,8 +37,7 @@ En caso de usar NPM usar
 ```
 npm i
 ```
-
-Para poder correr los test es el siguiente comando
+Una vez instaladas las dependencias se tendra que correr los siguietes comandos para ejecutar los testings:
 ```
 yarn test
 ```
